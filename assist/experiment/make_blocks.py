@@ -30,11 +30,7 @@ def make_blocks(labelmat, conf, blocksdir):
     if conf['alllabels'] == 'True':
         #ignore labels that have less than the minimum amount of labels
         to_count = np.where(labelmat.sum(0) >= int(conf['minblocks']))
-        #print(labelmat)
-        #print(to_count)
-        #print(np.min((labelmat[:, to_count].sum(0))))
         numblocks = int(min(numblocks, np.min(labelmat[:, to_count].sum(0))))
-        print(numblocks)
 
     while True:
 
