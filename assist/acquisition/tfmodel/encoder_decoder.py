@@ -76,7 +76,7 @@ class EncoderDecoder(tfmodel.TFModel):
 
         with tf.variable_scope('decoder'):
           
-            num_units = int(self.conf['numunits_encoder'])
+            num_units = int(self.conf['numunits_decoder'])
             lstm_cell = tf.contrib.rnn.BasicLSTMCell(num_units)
             encoded, _ = tf.nn.dynamic_rnn(lstm_cell, encoded, dtype=tf.float32)
 
@@ -90,7 +90,7 @@ class EncoderDecoder(tfmodel.TFModel):
             
             outputs = tf.layers.dense(
                 outputs,
-                int(self.conf['numunits_decoder']),
+                int(self.conf['dense_decoder']),
                 tf.nn.relu)
             outputs = tf.layers.dense(outputs, self.coder.numlabels,
                                       tf.nn.sigmoid)
