@@ -6,7 +6,6 @@ recipe=$3
 arguments="${@:4}"
 basedir=$(dirname "$0")
 pwd=$(pwd)
-#EXTRA_ROOT=.:/esat/spchtemp/scratch/pwang/pre-training/capsule
 allowed="dataprep cross_validation train test sweep"
 
 if [ $# -lt 3 ]; then
