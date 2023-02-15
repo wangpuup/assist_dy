@@ -75,26 +75,6 @@ class RCCN(tfmodel.TFModel):
 
             encoded = tf.identity(features, 'features')
             seq_length = tf.identity(seq_length, 'input_seq_length')
-            '''
-
-            for l in range(int(self.conf['numlayers_encoder'])):
-                with tf.variable_scope('layer%d' % l):
-                    num_units = int(self.conf['numunits_encoder'])
-                    fw = tf.contrib.rnn.GRUCell(num_units)
-                    bw = tf.contrib.rnn.GRUCell(num_units)
-                    encoded, _ = tf.nn.bidirectional_dynamic_rnn(
-                        fw, bw, encoded, dtype=tf.float32,
-                        sequence_length=seq_length)
-
-                    encoded = tf.concat(encoded, 2)
-
-                    if l != int(self.conf['numlayers_encoder']) - 1:
-                        with tf.name_scope('sub-sample'):
-                            encoded = encoded[:, ::int(self.conf['subsample'])]
-                        seq_length = tf.to_int32(tf.ceil(
-                            tf.to_float(seq_length)/
-                            float(self.conf['subsample'])))
-            '''
             
             encoded = tf.identity(encoded, 'encoded')
             seq_length = tf.identity(seq_length, 'output_seq_length')
