@@ -19,17 +19,8 @@ def main(expdirs, result):
 
     expdirs = [os.path.normpath(expdir) for expdir in expdirs]
 
-    #colorlist = ['red', 'blue', 'cyan', 'green', 'yellow', 'magenta',
-    #             'purple', 'pink', 'gold', 'navy', 'olive', 'grey']
-    #linestyles = ['-']
-
     colorlist = ['black','red','black','red']
     linestyles = ['--', '--', '-.','-.']
-    #colorlist = ['black','black','black','blue','red','red']
-    #linestyles = ['--', ':','--', ':', '--', ':']
-
-    #colorlist = ['green', 'dimgrey', 'darkorange']
-    #linestyles = ['-']
 
     plot_speakers = True
     remove_uncomplete = True
@@ -76,10 +67,6 @@ def main(expdirs, result):
                   'TDNN-LSTM-Copas',
                   'Transformer-LSTM-CGN',
                   'Transformer-LSTM-Copas']
-    #labelnames = ['capsule_lr_0.00015',
-                  #'capsule_lr_0.00025',
-                  #'NMF_lr_0.00015',
-                  #'NMF_lr_0.00025',]
     #remove experiments that are not performed in all experiments
     if remove_uncomplete:
         speakers = set(results[0].keys())
