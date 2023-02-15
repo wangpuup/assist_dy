@@ -24,17 +24,9 @@ def main(expdir):
             
             exppath = os.path.join(exprootdir, speaker)
 
-        #exp_path = os.path.join('/esat/spchtemp/scratch/pwang/pre-training/capsule/fluent_results/5', speaker)
-
             for f in glob.glob(
                     '%s*' % os.path.join(exppath, 'attention')):
                 shutil.rmtree(f, ignore_errors=True)
-        #for f in glob.glob(
-                #'%s*' % os.path.join(exppath, 'save_model')):
-            #shutil.rmtree(f, ignore_errors=True)
-        #for f in glob.glob(
-                #'%s*' % os.path.join(exppath, 'model')):
-            #shutil.rmtree(f, ignore_errors=True)
             for f in glob.glob(
                     '%s*' % os.path.join(exppath, 'outputs')):
                 shutil.rmtree(f, ignore_errors=True)
@@ -62,4 +54,3 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     main(args.expdir)
-#path = "/esat/spchdisk/scratch/pwang/before_511/RCCN_encode_9/4blocks_exp4/"
