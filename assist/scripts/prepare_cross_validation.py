@@ -17,8 +17,6 @@ from assist.tasks.read_task import read_task
 from assist.experiment.make_blocks import make_blocks
 import train_test
 from assist.tools import tools
-#os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"
-#os.environ["CUDA_VISIBLE_DEVICES"]="1"
 
 def main(expdir, recipe, computing):
     '''main function'''
@@ -100,11 +98,9 @@ def main(expdir, recipe, computing):
         features = dict()
         for l in open(os.path.join(dataconf.get(speaker, 'features'), 'feats')):
             splitline = l.strip().split(' ')
-            #featname = speaker + '_' + 'move_' + splitline[0]
             featname = speaker + '_'  + splitline[0]
             features[featname] = ' '.join(splitline[1:])
             print(featname)
-            #features[splitline[0]] = ' '.join(splitline[1:])
 
 
         #read and code all the tasks
@@ -113,8 +109,6 @@ def main(expdir, recipe, computing):
         taskstrings = dict()
         for line in open(dataconf.get(speaker, 'tasks')):
             splitline = line.strip().split(' ')
-            #name = splitline[0]
-            #name = speaker + '_' + 'move_' + splitline[0]
             name = speaker + '_' + splitline[0]
             if name in features.keys():
                 names.append(name)
@@ -169,13 +163,6 @@ def main(expdir, recipe, computing):
                 if not os.path.isdir(subexpdir):
                     os.makedirs(subexpdir)
 
-                #create pointers to the config files
-                #tools.symlink(os.path.join(expdir, 'acquisition.cfg'),
-                              #os.path.join(subexpdir, 'acquisition.cfg'))
-                #tools.symlink(os.path.join(expdir, 'coder.cfg'),
-                              #os.path.join(subexpdir, 'coder.cfg'))
-                #tools.symlink(os.path.join(expdir, 'structure.xml'),
-                              #os.path.join(subexpdir, 'structure.xml'))
                 shutil.copyfile(os.path.join(expdir, 'acquisition.cfg'),
                                 os.path.join(subexpdir, 'acquisition.cfg'))
                 shutil.copyfile(os.path.join(expdir, 'coder.cfg'),
