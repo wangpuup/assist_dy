@@ -5,7 +5,6 @@ do training followed by testing
 import os
 import sys
 sys.path.append(os.getcwd())
-#sys.path.append('/esat/spchdisk/scratch/pwang/pre-train-FSC/capsule')
 import argparse
 import random
 from ConfigParser import ConfigParser
