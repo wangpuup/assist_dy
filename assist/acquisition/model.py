@@ -3,7 +3,6 @@ Contains the Model class'''
 
 import os
 import sys
-#sys.path.append(os.getcwd())
 sys.path.append('/esat/spchdisk/scratch/pwang/pre-train-FSC/capsule')
 
 from abc import ABCMeta, abstractmethod
