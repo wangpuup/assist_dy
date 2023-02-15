@@ -1,3 +1,7 @@
+# About this repo
+
+This repo is based on [https://github.com/vrenkens/assist/] and contains changes to the original programs. More specifically, this code presents the SLU decoders for dysarthric speech. The inputs of the decoders can be either the MFCC/Fbank features or pre-trained speech representations extracted from the larger-scale acoustic models. The detailed implementations are explained in the paper "Benefits of Pre-trained Mono- and Cross-lingual Speech Representations for Spoken Language Understanding of Dutch Dysarthric Speech".
+
 # Assist
 
 A project discription of the ASSIST project can be found
