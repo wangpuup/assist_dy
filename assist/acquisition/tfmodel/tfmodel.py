@@ -6,7 +6,6 @@ import shutil
 import glob
 import sys
 sys.path.append(os.getcwd())
-#sys.path.append('/esat/spchdisk/scratch/pwang/pre-train-FSC/capsule')
 from operator import mul
 from random import shuffle
 from abc import ABCMeta, abstractmethod
@@ -86,11 +85,9 @@ class TFModel(Model):
                 name='targets')
 
             #apply the model
-            #labelprobs, spkprobs = self.model(inputs, seq_length)
             labelprobs = self.model(inputs, seq_length)
 
             #spkweight = float(self.conf['speakerweight'])
-            #loss = self.loss(targets, labelprobs) + spkweight * self.spkloss(targetspk, spkprobs)
             loss = self.loss(targets, labelprobs)
 
             #count the number of parameters
@@ -414,7 +411,6 @@ class TFModel(Model):
                 '%s*' % os.path.join(self.expdir, 'logdir', 'model.ckpt')):
             shutil.copy(f, directory)
 
-	############################################# JAKOB #########################################
     # delete the logdir folder because we don't use it and it takes a lot of space
 	for f in glob.glob(
 		'%s*' % os.path.join(self.expdir,'logdir')):
