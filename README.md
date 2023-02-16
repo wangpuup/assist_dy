@@ -28,7 +28,7 @@ Most of the datasets used to train and test the models can be downloaded from
 ### Data preperation
 
 This stage is only for MFCC/Fbank features, it can be skipped for the pre-trained
-featurus inputs.
+features inputs.
 
 In the data preperation stage all the data is prepared (feature computation).
 All the prepared data is written in the directory specified in database.cfg.
