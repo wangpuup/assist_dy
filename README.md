@@ -12,7 +12,7 @@ using TensorFlow.
 
 ## Using Assist
 
-Assist works in several stages: data prepation, optional acoustic model training
+Assist works in several stages: optional data prepation, optional acoustic model training
 and training and testing the acquisition model.
 Each of these stages uses a recipe for a specific model and database.
 The recipe contains configuration files for the all components and defines all
@@ -26,6 +26,9 @@ Most of the datasets used to train and test the models can be downloaded from
 [here](https://www.esat.kuleuven.be/psi/spraak/downloads/).
 
 ### Data preperation
+
+This stage is only for MFCC/Fbank features, it can be skipped for the pre-trained
+featurus inputs.
 
 In the data preperation stage all the data is prepared (feature computation).
 All the prepared data is written in the directory specified in database.cfg.
@@ -107,8 +110,7 @@ with the following arguments:
 ### Training
 
 Instead of doing cross-validation you can also just train a model on a trainig
-set. The sections in the database.cfg used for training are defined in
-train.cfg.
+set. 
 
 You can train the model with
 
@@ -118,8 +120,7 @@ run train <expdir> <recipe> [-c <computing>]
 
 ### Testing
 
-After training you can test the performance of the model. The sections in the
-database.cfg used for tasting are defined in test.cfg.
+After training you can test the performance of the model. 
 
 You can test the model with
 
